@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { HomeScreen } from './src/screens/home/HomeScreen';
 import { ProfileScreen } from './src/screens/profile/ProfileScreen';
+import { FoodListScreen } from './src/screens/food-list/FoodListScreen';
 //import { useColorScheme } from 'nativewind';
 
 const Tab = createBottomTabNavigator();
@@ -13,8 +14,9 @@ export default function App() {
     <>
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name='Home' component={HomeScreen} />
-          <Tab.Screen name='Profile' component={ProfileScreen} />
+          <Tab.Screen name='Home' options={{ title: 'Inicio' }} component={HomeScreen} />
+          <Tab.Screen name='Search' options={{ title: 'Explorar' }} component={FoodListScreen} />
+          <Tab.Screen name='Profile' options={{ title: 'Cuenta' }} component={ProfileScreen} />
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar style='auto' />
