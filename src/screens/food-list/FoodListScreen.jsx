@@ -20,7 +20,7 @@ export const FoodListScreen = () => {
   const foodCard = ({ item }) => (
     <Pressable className="m-2 bg-white rounded-xl">
       <View className="px-1 pt-2 pb-2">
-        <Image source={{ uri: `${item.image}` }} style={{ width: 386, height: 240 }} className="rounded-lg"/>
+        <Image source={{ uri: `${item.image}` }} style={{ width: '100%', height: 250 }} className="rounded-lg"/>
         <Text className="my-2 ml-2 font-medium text-xl">{item.name}</Text>
       </View>
     </Pressable>
