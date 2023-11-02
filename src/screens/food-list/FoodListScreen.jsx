@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getRecipesList } from "../../api/recipe.service";
 import { FlatList, Pressable, SafeAreaView, View, Text, Image, Button } from "react-native";
-import AiOutlineHeart from "react-icons/ai";
 
-export const FoodListScreen = () => {
+export const FoodListScreen = ({ navigation }) => {
 
   const [foodList, setFoodList] = useState([]);
 
@@ -18,7 +17,7 @@ export const FoodListScreen = () => {
   }, []);
 
   const foodCard = ({ item }) => (
-    <Pressable className="m-2 bg-white rounded-xl">
+    <Pressable onPress={() => navigation.navigate('FoodDetail',{ item })} className="m-2 bg-white rounded-xl">
       <View className="px-1 pt-2 pb-2">
         <Image source={{ uri: `${item.image}` }} style={{ width: '100%', height: 250 }} className="rounded-lg"/>
         <Text className="my-2 ml-2 font-medium text-xl">{item.name}</Text>
