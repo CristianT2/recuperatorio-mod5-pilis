@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, SafeAreaView, ImageBackground, Dimensions } from "react-native"
+import { Text, ImageBackground, Dimensions } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const HomeScreen = () => {
 

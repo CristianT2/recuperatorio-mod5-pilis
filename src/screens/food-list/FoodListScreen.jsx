@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { getRecipesList } from "../../api/recipe.service";
-import { FlatList, Pressable, SafeAreaView, View, Text, Image, Button } from "react-native";
+import { FlatList, Pressable, View, Text, Image } from "react-native";
+import { SearchBar } from "../../components/SearchBar";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const FoodListScreen = ({ navigation }) => {
 
   const [foodList, setFoodList] = useState([]);
-
-  const changeColor = () => {
-    console.log("hola");
-  }
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     getRecipesList()
       .then(data => setFoodList(data))
       .catch(err => console.log(err))
   }, []);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query)
+  };
+
+  const filteredFoods = foodList.filter(food => (
+    food.name.toLowerCase().includes(searchQuery.toLowerCase())
+  ));
 
   const foodCard = ({ item }) => (
     <Pressable onPress={() => navigation.navigate('FoodDetail',{ item })} className="m-2 bg-white rounded-xl">
@@ -27,10 +34,12 @@ export const FoodListScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView className="bg-slate-200">
+      <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
       <FlatList
-        data={foodList}
+        data={filteredFoods}
         renderItem={foodCard}
         keyExtractor={item => item.id}
+        className="mb-14"
       />
     </SafeAreaView>
   );

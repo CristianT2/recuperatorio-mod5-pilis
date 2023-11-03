@@ -15,7 +15,7 @@ export default function App() {
           <FoodListStack.Screen name='FoodDetail' component={FoodDetailScreen} />
         </FoodListStack.Navigator>
       </NavigationContainer>
-      <StatusBar style='auto' />
+      <StatusBar style='auto'/>
     </>
   );
 };
