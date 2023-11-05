@@ -15,7 +15,7 @@ export const HomeScreen = () => {
           height: ScreenHeight,
         }}
       >
-        <Text className="m-auto pt-12 text-4xl font-extrabold text-white text-center w-9|/12">
+        <Text className="m-auto pt-12 text-4xl font-extrabold text-white text-center w-9/12">
           Conocé la Gastronomía de Jujuy
         </Text>
       </ImageBackground>
